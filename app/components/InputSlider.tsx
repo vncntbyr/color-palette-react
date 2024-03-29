@@ -13,7 +13,7 @@ export const InputSlider = ({ hue, setHue }: InputSliderProps) => {
         min='0'
         max='360'
         value={hue}
-        onInput={(e) => setHue(e.target.value)}
+        onInput={(e: any) => setHue(e.target.value)}
       />
       <div className='flex justify-between items-center gap-4'>
         <span className='text-black'>hue: {hue}</span>
