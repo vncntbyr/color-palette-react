@@ -20,6 +20,12 @@ export const InputSlider = ({ hue, setHue }: InputSliderProps) => {
         <div className='flex gap-2'>
           <button
             className='px-2 py-1 bg-gray-200 text-black rounded-md'
+            onClick={() => setHue(30)}
+          >
+            rot
+          </button>
+          <button
+            className='px-2 py-1 bg-gray-200 text-black rounded-md'
             onClick={() => setHue(150)}
           >
             grün
@@ -29,12 +35,6 @@ export const InputSlider = ({ hue, setHue }: InputSliderProps) => {
             onClick={() => setHue(270)}
           >
             blau
-          </button>
-          <button
-            className='px-2 py-1 bg-gray-200 text-black rounded-md'
-            onClick={() => setHue(30)}
-          >
-            rot
           </button>
         </div>
       </div>
