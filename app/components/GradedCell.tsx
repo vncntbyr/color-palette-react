@@ -1,6 +1,5 @@
-import chromaJS from "chroma-js";
 import { ColorGrade } from "./types/types";
-import { getGradingProperties } from "../utils/utils";
+import { getChromaColor } from "../utils/utils";
 
 type ColorGradeProps = {
   grade: ColorGrade;
@@ -15,8 +14,8 @@ export const GradedCell = ({
   chroma,
   hue,
 }: ColorGradeProps): JSX.Element => {
-  const color = chromaJS.oklch(lAxis, chroma, hue);
-  const hexColor = color.hex();
+  const color = getChromaColor({ lAxis, chroma, hue });
+  const hexColor = color?.hex();
 
   return (
     <div

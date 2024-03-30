@@ -3,12 +3,7 @@ import Image from "next/image";
 import { InputSlider } from "./components/InputSlider";
 import { Card } from "./components/Card";
 import { ColorPalette } from "./components/ColorPalette";
-import {
-  getColorFromColorElements,
-  getColorRanges,
-  getGradingProperties,
-  getKeys,
-} from "./utils/utils";
+import { getColor, getColorRanges, getKeys } from "./utils/utils";
 import { ColorGrade, CustomColor } from "./components/types/types";
 import { useState } from "react";
 
@@ -26,8 +21,8 @@ const colorGrades: ColorGrade[] = [
 
 export default function Home() {
   const [hue, setHue] = useState(0);
-  const colors: CustomColor[] = getColorFromColorElements(colorGrades, hue);
-  const colorRanges = getColorRanges(colorGrades, colors);
+  const colors: Record<ColorGrade, CustomColor> = getColor(colorGrades, hue);
+  const colorRanges = getColorRanges(colors);
   return (
     <main className='bg-white flex flex-1 justify-between h-screen p-8'>
       <div id='leftSide' className='flex flex-col justify-between w-6/12 gap-4'>
